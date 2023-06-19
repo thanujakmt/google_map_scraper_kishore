@@ -26,5 +26,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "chiropractor":{"user":"chiropractor","password":"longR@ad44","database":"chiropractor_business_db"},
                 "mental_health_service":{"user":"mentalhealthservice","password":"g@ldNorth88","database":"mental_health_service_business_data"},
                 "acupuncturists":{"user":"usa_acupuncturists_db","password":"smallOl!ve26","database":"usa_acupuncturists_db"},
-                "yoga_studio":{"user":"usa_yoga_db","password":"SignBox76","database":"usa_yoga_db"}
+                "yoga_studio":{"user":"usa_yoga_db","password":"SignBox76","database":"usa_yoga_db"},
+                "massage_therapist" :{"user":"massage_therapist_business_db","password":"he@vyCamp24","database":"massage_therapist_business_db"}
                 }
