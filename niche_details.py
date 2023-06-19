@@ -1,5 +1,5 @@
 country = 'united states of america'
-niche = 'yoga_studio'
+niche = 'massage_therapist'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
