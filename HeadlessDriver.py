@@ -13,7 +13,7 @@ def headlessDriver(waitTime):
     options.page_load_strategy = 'eager'
     # , options=options
 
-    driver = uc.Chrome(use_subprocess=True, options= options)
+    driver = uc.Chrome(use_subprocess=True, options= options, version_main=104)
     wait = WebDriverWait(driver,waitTime)
     
     return driver,wait

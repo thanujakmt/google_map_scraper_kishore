@@ -141,7 +141,7 @@ def getEmail(website,driver):
     except Exception as err:
         print(" {} \nFailed to read page!".format(err))
         return None
-# @retryFunction 
+# @retry()
 def get_GMB_Details(url,driver,wait):
 
     # try:
@@ -168,6 +168,7 @@ def get_GMB_Details(url,driver,wait):
         # business = wait.until(EC.visibility_of_element_located((By.XPATH,"//h1[@class='DUwDvf fontHeadlineLarge']"))).text
 
         business = driver.find_element(By.XPATH,"//h1[@class='DUwDvf fontHeadlineLarge']").text
+        business = str(business).replace("'","").replace('"','')
         print(business)
         # businessInDb = checkBusinessNameInDB(myCursor= myCursor,gl_business_name= business)
         # if businessInDb == 0:
@@ -179,13 +180,13 @@ def get_GMB_Details(url,driver,wait):
         try:
             # ratings = wait.until(EC.visibility_of_element_located((By.XPATH,"((//div[@class='LBgpqf']//div[@role='button']/span)[1]/span/span)[1]"))).text
 
-            ratings = driver.find_element(By.XPATH,"((//div[@class='LBgpqf']//div[@role='button']/span)[1]/span/span)[1]").text
+            ratings = driver.find_element(By.XPATH,"(//div[@class='F7nice ']//span/span)[1]").text
         except: 
             ratings = '0'
         try:
             # reviews = str(wait.until(EC.visibility_of_element_located((By.XPATH,"//button[@jsaction='pane.rating.moreReviews']"))).text).replace(' reviews','').replace(' review','')
 
-            reviews = str(driver.find_element(By.XPATH,"//button[@jsaction='pane.rating.moreReviews']").text).replace(' reviews','').replace(' review','')
+            reviews = str(driver.find_element(By.XPATH,"(//div[@class='F7nice ']/span)[2]").text.split('(')[1].split(")")[0])
         except:
             reviews = '0'
                 # address = wait.until(EC.visibility_of_element_located((By.XPATH,"(//div[@class='Io6YTe fontBodyMedium'])[1]"))).text
@@ -193,6 +194,7 @@ def get_GMB_Details(url,driver,wait):
             # address = str(wait.until(EC.visibility_of_element_located((By.XPATH,"//button[@data-item-id='address']"))).get_attribute('aria-label')).replace('Address: ','')
 
             address = str(driver.find_element(By.XPATH,"//button[@data-item-id='address']").get_attribute('aria-label')).replace('Address: ','')
+            address = address.replace("'","").replace('"','')
         except Exception as e:
             print(e)
             address = None
@@ -261,15 +263,23 @@ def sendingDataToWebdriver(address,category):
         webElementFinder(wait = wait, xpath = "//div[contains(text(),'Nearby')]", actionPerform = 'click')
         # wait.until(EC.visibility_of_element_located((By.XPATH,"//div[contains(text(),'Nearby')]"))).click()
     except Exception as e:
-        print(e)
-        # action.move_by_offset(76,29)
-        webElementFinder(wait = wait, xpath = "//div[@role='feed']/div[1]", actionPerform = 'click')
-        # wait.until(EC.visibility_of_element_located((By.XPATH,"//div[@role='feed']/div[1]"))).click()
-        time.sleep(2)
+        try:
+            webElementFinder(wait = wait, xpath = "(//a[@class='hfpxzc'])[1]", actionPerform = 'click')
+            # wait.until(EC.visibility_of_element_located((By.XPATH,"//div[@role='feed']/div[1]"))).click()
+            time.sleep(2)
 
-        # action.move_by_offset(-76,-29)
-        webElementFinder(wait = wait, xpath = "//div[contains(text(),'Nearby')]", actionPerform = 'click')
-        # wait.until(EC.visibility_of_element_located((By.XPATH,"//div[contains(text(),'Nearby')]"))).click()
+            # action.move_by_offset(-76,-29)
+            webElementFinder(wait = wait, xpath = "//div[contains(text(),'Nearby')]", actionPerform = 'click')
+            # wait.until(EC.visibility_of_element_located((By.XPATH,"//div[contains(text(),'Nearby')]"))).click()
+        except:
+            driver.get('https://maps.google.com/')
+            webElementFinder(wait = wait, xpath = "//input[@id='searchboxinput']", actionPerform = 'send_keys', actionData = address)
+            time.sleep(2)
+            webElementFinder(wait = wait, xpath = "//img[@class='hCgzhd']", actionPerform = 'click')
+            time.sleep(2)
+            webElementFinder(wait = wait, xpath = "//div[contains(text(),'Nearby')]", actionPerform = 'click')
+
+
 
     time.sleep(4)
     webElementFinder(wait = wait, xpath = "//input[@id='searchboxinput']", actionPerform = 'send_keys', actionData = category)
@@ -296,78 +306,106 @@ def sendingDataToWebdriver(address,category):
             time.sleep(2)
             # s_val = s_val + 20
         except:
+
             print("end")
+            break
         try:
             ele= driver.find_element(By.XPATH,"//span[@class='HlvSq']")
             lastElement = 1
         except:
             lastElement = 0
-    print(ele.text)
-    allPlace = wait.until(EC.visibility_of_all_elements_located((By.XPATH,"//a[@class='hfpxzc']")))
-    return driver, wait, action,allPlace
-def searchNearbyPlaces(address,category,country,state,district,myDatabase, myCursor,gmbDataTableName):
+    try:
+        
+        print(ele.text)
+        restart = 0
+    except:
+        restart = 1
+        print('dentist element not found')
+    if restart ==0:
+        allPlace = wait.until(EC.visibility_of_all_elements_located((By.XPATH,"//a[@class='hfpxzc']")))
+        return driver, wait, action,allPlace
+    else:
+        driver.close()
+        return None,None,None,None
+
+def write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category):
+    try:
+        listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
+        with open(data_file_name,'a') as dataFile:
+            dataFile.writelines(listquery)
+            print(f'Stored into {data_file_name}')
+        dataFile.close()
+    except Exception as e:
+        print(e)
+def searchNearbyPlaces(data_file_name,address,category,country,country_id,state,state_id,district,district_id,myDatabase, myCursor,gmbDataTableName,city):
     
     
     driver,wait,action,allPlace = sendingDataToWebdriver(address,category)
-    allUrl = []
-    pin_code = (int(str(address).split(',')[0]))
-    searchBusiness = checkBusinessInBD(allPlace= allPlace,myCursor= myCursor,gmbDataTableName=gmbDataTableName)
-    for link in searchBusiness:
-        # link= (link.find_element(By.XPATH,"//a"))
-        url = (link.get_attribute('href'))
+    if driver is not None:
+        allUrl = []
+        # pin_code = (int(str(address).split(',')[0]))
+        pin_code=0
+        searchBusiness = checkBusinessInBD(allPlace= allPlace,myCursor= myCursor,gmbDataTableName=gmbDataTableName)
+        for link in searchBusiness:
+            
+            url = (link.get_attribute('href'))
 
-        allUrl.append(url)
-        
-        # print((link.find_element(By.XPATH,"//a")).get_attribute('href'))
-    allResult = []
-    for url in allUrl:
-        
-            # url = (link.get_attribute('href'))
-        print(url)
-        try:
-            gmbResultDict=(get_GMB_Details(url,driver,wait))
-        except Exception as e:
-            print(e)
-            driver.quit()
-            driver, wait = headlessDriver(waitTime=10)
-        print(gmbResultDict)
-        if gmbResultDict != None:
+            allUrl.append(url)
+            
+          
+        allResult = []
+        for url in allUrl:
+            
+               
+            print(url)
             try:
-                query = f'''insert into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,country,state,district,gl_url,gl_url_done_flag) values("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']})'''
-                
-                myCursor.execute(query)
-                myDatabase.commit()
-                print("Database Insertion Done")
-                # myDatabase.close()
+                gmbResultDict=(get_GMB_Details(url,driver,wait))
             except Exception as e:
                 print(e)
-                
-                if 'Duplicate entry' not in str(e):
-                    # myDatabase.close()
-                    time.sleep(1)
-                    myDatabase,myCursor = dbConnection()
+          
+                driver.quit()
+                driver, wait = headlessDriver(waitTime=10)
+            print(gmbResultDict)
+            if gmbResultDict != None:
+               
+                write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category)
+                # listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
+                # with open('data.csv','a') as f:
+                #     f.writelines(listquery)
+                # f.close()
+
+
+                # query = f'''insert into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,country,state,district,gl_url,gl_url_done_flag,country_code,state_code,district_code,city) values("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")'''
+                # try:   
+                #     myCursor.execute(query)
+                #     myDatabase.commit()
+                #     print("Database Insertion Done")
+                #     # myDatabase.close()
+                # except Exception as e:
+                #     print(e)
                     
-                    myCursor.execute(query)
-                    myDatabase.commit()
-                    print("Data Insterion Done")
-                else:
-                    
-                    gl_url_done_query = f'insert into {gmbDataTableName} (gl_url,gl_url_done_flag) values ("{url}",0)'
-                    try:
-                        myCursor.execute(gl_url_done_query)
-                        myDatabase.commit()
-                    except:
+                #     if 'Duplicate entry' not in str(e):
+                #         # myDatabase.close()
+                #         time.sleep(1)
+                #         myDatabase,myCursor = dbConnection()
+                #         try:
+                #             myCursor.execute(query)
+                #             myDatabase.commit()
+                #             print("Data Insterion Done")
+                #         except Exception as e:
+                #             print(e)
+                #     else:
                         
-                        myDatabase, myCursor = dbConnection()
-                        try:
-                            myCursor.execute(gl_url_done_query)
-                            myDatabase.commit()
-                        except Exception as e:
-                            print(e)
+                     
+                #         print(e)
+                    
+                allResult.append(gmbResultDict)
                 
-            allResult.append(gmbResultDict)
-            # print("no value found")
-    driver.quit()
+                # print("no value found")
+        driver.quit()
+        return 1
+    else:
+        return 0
  
 @retryFunction
 def firstLastPincode(myCursor,category):
@@ -398,6 +436,7 @@ def firstLastPincode(myCursor,category):
         return 0,0
     else:
         return firstPinCode[0][0],lastPinCode[0][0]
+
 
 if __name__ == '__main__':
 

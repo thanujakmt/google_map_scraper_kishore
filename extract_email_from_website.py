@@ -7,7 +7,7 @@ from databaseConnection import dbConnection
 import time
 import re
 import requests
-from retry import retryFunction
+from retry_custom import retryFunction
 
 def get_gl_id_and_gl_website(myCursor,gmbDataTableName):
     query = f'select gl_id, gl_website from {gmbDataTableName} where gl_website != "No Website Found"'
