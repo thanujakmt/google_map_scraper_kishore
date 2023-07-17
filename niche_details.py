@@ -1,5 +1,5 @@
 country = 'united states of america'
-niche = 'naturopathic_practitioner'
+niche = 'nutritionist_business'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -28,5 +28,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "acupuncturists":{"user":"usa_acupuncturists_db","password":"smallOl!ve26","database":"usa_acupuncturists_db"},
                 "yoga_studio":{"user":"usa_yoga_db","password":"SignBox76","database":"usa_yoga_db"},
                 "massage_therapist" :{"user":"massage_therapist_business_db","password":"he@vyCamp24","database":"massage_therapist_business_db"},
-                "naturopathic_practitioner" :{"user":"naturopathic_practitioner","password":"LionC@ve74","database":"naturopathic_practitioner_business_db"}
+                "naturopathic_practitioner" :{"user":"naturopathic_practitioner","password":"LionC@ve74","database":"naturopathic_practitioner_business_db"},
+                "nutritionist_business" : {"user":"nutritionist_business_db","password":"wi$eFeast47","database":"nutritionist_business_db"}
                 }
