@@ -166,8 +166,9 @@ def get_GMB_Details(url,driver,wait):
         action.move_by_offset(100,100).perform()
 
         # business = wait.until(EC.visibility_of_element_located((By.XPATH,"//h1[@class='DUwDvf fontHeadlineLarge']"))).text
-
-        business = driver.find_element(By.XPATH,"//h1[@class='DUwDvf fontHeadlineLarge']").text
+        bxpath = "//h1[contains(@class,'DUwDvf')]"
+        old_bxpath = "//h1[@class='DUwDvf fontHeadlineLarge']"
+        business = driver.find_element(By.XPATH,bxpath).text
         business = str(business).replace("'","").replace('"','')
         print(business)
         # businessInDb = checkBusinessNameInDB(myCursor= myCursor,gl_business_name= business)

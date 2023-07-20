@@ -340,16 +340,6 @@ def main_function():
 #<----------fetching not start location's counts------------->
         location_count = get_location_not_start_count(myCursor= myCursor,location_table_name= location_table,category= category)
 
-        
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
    
     main_function()

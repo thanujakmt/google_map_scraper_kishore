@@ -1,7 +1,7 @@
-country = 'united states of america'
+country = 'australia'
 niche = 'nutritionist'
 category = niche
-country_code = 'usa'
+country_code = 'au'
 location_table = f'{country_code}_{niche}_locations'
 
 gmbDataTableName = f'{country_code}_{category}_business_data'
