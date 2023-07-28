@@ -1,7 +1,7 @@
-country = 'australia'
-niche = 'nutritionist'
+country = 'united states of america'
+niche = 'meditation'
 category = niche
-country_code = 'au'
+country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
 
 gmbDataTableName = f'{country_code}_{category}_business_data'
@@ -29,5 +29,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "yoga_studio":{"user":"usa_yoga_db","password":"SignBox76","database":"usa_yoga_db"},
                 "massage_therapist" :{"user":"massage_therapist_business_db","password":"he@vyCamp24","database":"massage_therapist_business_db"},
                 "naturopathic_practitioner" :{"user":"naturopathic_practitioner","password":"LionC@ve74","database":"naturopathic_practitioner_business_db"},
-                "nutritionist" : {"user":"nutritionist_business_db","password":"wi$eFeast47","database":"nutritionist_business_db"}
+                "nutritionist" : {"user":"nutritionist_business_db","password":"wi$eFeast47","database":"nutritionist_business_db"},
+                "meditation" : {"user":"meditation_business_db","password":"R!verFlow75","database":"meditation_business_db"}
                 }
