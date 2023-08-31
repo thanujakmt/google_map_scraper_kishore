@@ -196,7 +196,7 @@ def insert_and_replace_data_csv_file(myCursor,myDatabase,gmbDataTableName,data_f
     with open(data_file_name,'r') as f:
         query = f.readline()
 
-    finalQuery = f'replace into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,country,state,district,gl_url,gl_url_done_flag,country_code,state_code,district_code,city) values {query.removeprefix(",")}'
+    finalQuery = f'replace into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,gmb_category,country,state,district,gl_url,gl_url_done_flag,country_code,state_code,district_code,city) values {query.removeprefix(",")}'
    
     #updating data into database
     try:

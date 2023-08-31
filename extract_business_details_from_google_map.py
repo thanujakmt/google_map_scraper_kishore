@@ -174,6 +174,10 @@ def get_GMB_Details(url,driver,wait):
         # businessInDb = checkBusinessNameInDB(myCursor= myCursor,gl_business_name= business)
         # if businessInDb == 0:
         try:
+            gmb_category = driver.find_element(By.XPATH,"//button[@jsaction='pane.rating.category']").text
+        except:
+            gmb_category = "None"
+        try:
             photos = str(driver.find_element(By.XPATH,"//div[@class='YkuOqf']").text).replace(' photos','')
         except:
             photos = '1'
@@ -231,7 +235,7 @@ def get_GMB_Details(url,driver,wait):
             
                 
             
-        gmbResultDict = {'gl_business_name':business,'gl_ratings':ratings,'gl_reviews':reviews,'gl_gmb_photos_count':photos,'gl_telephone':telephone,'gl_website':website,'gl_address':address,'gl_url':url,'gl_url_done_flag':1}
+        gmbResultDict = {'gl_business_name':business,'gl_ratings':ratings,'gl_reviews':reviews,'gl_gmb_photos_count':photos,'gl_telephone':telephone,'gl_website':website,'gl_address':address,'gl_url':url,'gl_url_done_flag':1,"gmb_category":gmb_category}
         action.move_by_offset(-100,-100).perform()
         driver.delete_all_cookies()
         return gmbResultDict
@@ -331,7 +335,7 @@ def sendingDataToWebdriver(address,category):
 
 def write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category):
     try:
-        listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
+        listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{gmbResultDict['gmb_category']}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
         with open(data_file_name,'a') as dataFile:
             dataFile.writelines(listquery)
             print(f'Stored into {data_file_name}')

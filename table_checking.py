@@ -41,6 +41,7 @@ def create_table(category,myCursor,myDatabase,country,country_code):
   `gl_gmb_photos_count` varchar(255) DEFAULT NULL,
   `gl_reviews` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
+  `gmb_category` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `email_done_flag` tinyint(1) DEFAULT NULL,
   `custom_scrapped_email_done_flag` tinyint(1) DEFAULT NULL,

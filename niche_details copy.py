@@ -1,7 +1,8 @@
-country = 'united states of america'
-niche = 'meditation'
+
+country = 'australia'
+niche = 'mental_health_service'
 category = niche
-country_code = 'usa'
+country_code = 'au'
 location_table = f'{country_code}_{niche}_locations'
 
 gmbDataTableName = f'{country_code}_{category}_business_data'
@@ -12,10 +13,6 @@ instance_id = 1
 #note i changed pincode in code and pin_code in searchbusinessdata
 
 collection_type = 2  #1 = Entire Database, 2 = State Wise
-
-
-
-
 
 #<-------Databse Credential----------->
 
