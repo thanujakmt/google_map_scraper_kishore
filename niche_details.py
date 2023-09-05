@@ -1,7 +1,7 @@
-country = 'australia'
-niche = 'mental_health_service'
+country = 'united states of america'
+niche = 'ayurveda'
 category = niche
-country_code = 'au'
+country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
 
 gmbDataTableName = f'{country_code}_{category}_business_data'
@@ -31,4 +31,5 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "naturopathic_practitioner" :{"user":"naturopathic_practitioner","password":"LionC@ve74","database":"naturopathic_practitioner_business_db"},
                 "nutritionist" : {"user":"nutritionist_business_db","password":"wi$eFeast47","database":"nutritionist_business_db"},
                 "meditation" : {"user":"meditation_business_db","password":"R!verFlow75","database":"meditation_business_db"},
+                "ayurveda" : {"user":"ayurveda_business_db","password":"g@ldSand14","database":"ayurveda_business_db"}
                 }
