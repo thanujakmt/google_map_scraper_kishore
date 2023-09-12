@@ -1,5 +1,5 @@
 country = 'united states of america'
-niche = 'ayurveda'
+niche = 'energy_healer'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -31,5 +31,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "naturopathic_practitioner" :{"user":"naturopathic_practitioner","password":"LionC@ve74","database":"naturopathic_practitioner_business_db"},
                 "nutritionist" : {"user":"nutritionist_business_db","password":"wi$eFeast47","database":"nutritionist_business_db"},
                 "meditation" : {"user":"meditation_business_db","password":"R!verFlow75","database":"meditation_business_db"},
-                "ayurveda" : {"user":"ayurveda_business_db","password":"g@ldSand14","database":"ayurveda_business_db"}
+                "ayurveda" : {"user":"ayurveda_business_db","password":"g@ldSand14","database":"ayurveda_business_db"},
+                "energy_healer" : {"user":"energy_healer","password":"h@ppyTime34","database":"energy_healer_business_db"}
                 }
