@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'functional_medicine'
+niche = 'herbal_medicine'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -31,5 +31,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "meditation" : {"user":"meditation_business_db","password":"R!verFlow75","database":"meditation_business_db"},
                 "ayurveda" : {"user":"ayurveda_business_db","password":"g@ldSand14","database":"ayurveda_business_db"},
                 "energy_healer" : {"user":"energy_healer","password":"h@ppyTime34","database":"energy_healer_business_db"},
-                "functional_medicine" : {"user":"functional_medicine","password":"curlyB!rd85","database":"functional_medicine_business_db"}
+                "functional_medicine" : {"user":"functional_medicine","password":"curlyB!rd85","database":"functional_medicine_business_db"},
+                "herbal_medicine" : {"user":"herbal_medicine","password":"lushAl@rm88","database":"herbal_medicine_business_db"}
                 }
