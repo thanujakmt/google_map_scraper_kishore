@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'reiki_healers'
+niche = 'sound_therapy'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -33,5 +33,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "energy_healer" : {"user":"energy_healer","password":"h@ppyTime34","database":"energy_healer_business_db"},
                 "functional_medicine" : {"user":"functional_medicine","password":"curlyB!rd85","database":"functional_medicine_business_db"},
                 "herbal_medicine" : {"user":"herbal_medicine","password":"lushAl@rm88","database":"herbal_medicine_business_db"},
-                "reiki_healers" : {"user":"reiki_healers","password":"C@melRoad76","database":"reiki_healers_business_db"}
+                "reiki_healers" : {"user":"reiki_healers","password":"C@melRoad76","database":"reiki_healers_business_db"},
+                "sound_therapy" : {"user":"sound_therapy","password":"sh!nyBeam15","database":"sound_therapy_business_db"}
                 }
