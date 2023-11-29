@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'reflexology'
+niche = 'sound_healing'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -36,5 +36,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "reiki_healers" : {"user":"reiki_healers","password":"C@melRoad76","database":"reiki_healers_business_db"},
                 "sound_therapy" : {"user":"sound_therapy","password":"sh!nyBeam15","database":"sound_therapy_business_db"},
                 "Hypnotherapy" : {"user":"Hypnotherapy","password":"GoatH!ll76","database":"Hypnotherapy_business_db"},
-                "reflexology" : {"user":"reflexology","password":"f@ncyKoala45","database":"reflexology_business_db"}
+                "reflexology" : {"user":"reflexology","password":"f@ncyKoala45","database":"reflexology_business_db"},
+                "sound_healing" : {"user":"sound_healing","password":"sl!mSpring95","database":"sound_healing_business_db"}
                 }
