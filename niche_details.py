@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'cranial_sacral_therapy'
+niche = 'aromatherapy'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -38,5 +38,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "Hypnotherapy" : {"user":"Hypnotherapy","password":"GoatH!ll76","database":"Hypnotherapy_business_db"},
                 "reflexology" : {"user":"reflexology","password":"f@ncyKoala45","database":"reflexology_business_db"},
                 "sound_healing" : {"user":"sound_healing","password":"sl!mSpring95","database":"sound_healing_business_db"},
-                "cranial_sacral_therapy" : {"user":"cranial_sacral","password":"h@ppyTown15","database":"cranial_sacral_therapy_business_db"}
+                "cranial_sacral_therapy" : {"user":"cranial_sacral","password":"h@ppyTown15","database":"cranial_sacral_therapy_business_db"},
+                "aromatherapy" : {"user":"aromatherapy","password":"freeW@ve12","database":"aromatherapy_business_db"}
                 }
