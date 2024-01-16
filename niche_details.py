@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'pawn_shop'
+niche = 'pizza'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -41,5 +41,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "cranial_sacral_therapy" : {"user":"cranial_sacral","password":"h@ppyTown15","database":"cranial_sacral_therapy_business_db"},
                 "aromatherapy" : {"user":"aromatherapy","password":"freeW@ve12","database":"aromatherapy_business_db"},
                 "homeopathy" : {"user":"homeopathy_business","password":"bu$yGrass24","database":"homeopathy_business_db"},
-                "pawn_shop" : {"user":"pawn_shop","password":"WarCh@in34","database":"pawn_shop_business_db"}
+                "pawn_shop" : {"user":"pawn_shop","password":"WarCh@in34","database":"pawn_shop_business_db"},
+                "pizza" : {"user":"pizza_business","password":"SkyOcean54","database":"pizza_business_db"}
                 }
