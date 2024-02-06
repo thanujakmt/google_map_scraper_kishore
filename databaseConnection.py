@@ -1,3 +1,4 @@
+
 import mysql.connector
 from retry_custom import retryFunction
 from niche_details import *
@@ -12,7 +13,6 @@ def dbConnection():
         # user = "usa_dent_db",
         # password = "sw3etSnow21",
         # database = "usa_dent_db"
-
         # user = "daycare",
         # password = "$illyAnt88",
         # database = "daycare_business_db"
@@ -20,12 +20,10 @@ def dbConnection():
         password = db_credential[niche]['password'],
         database = db_credential[niche]['database']
         
-        
-
         # host = "localhost",
         # user = "root",
         # password = "Power1234",
-        # database = "usa_dent_db",
+        # database = "testTimezone",
         # auth_plugin='mysql_native_password'
     )
     myCursor = myDatabase.cursor()
@@ -33,4 +31,3 @@ def dbConnection():
 
 if __name__ == '__main__':
     dbConnection()
-   

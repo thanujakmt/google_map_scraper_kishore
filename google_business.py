@@ -48,7 +48,8 @@ def get_location(myCursor,location_table_name,status,category):
         country_id = location[7]
         country = location[8]
         city = location[11]  
-        loc = {"location_count":1,"location_id":location_id,"pincode":pincode,"address":address,"district_code":district_id,"district":district,"state_code":state_id,"state":state,"country_code":country_id,"country":country,"city":city} 
+        timezone = location[12]
+        loc = {"location_count":1,"location_id":location_id,"pincode":pincode,"address":address,"district_code":district_id,"district":district,"state_code":state_id,"state":state,"country_code":country_id,"country":country,"city":city,"timezone":timezone} 
         print('$$$ inside while loop')
         print(loc)
         return loc
@@ -196,7 +197,7 @@ def insert_and_replace_data_csv_file(myCursor,myDatabase,gmbDataTableName,data_f
     with open(data_file_name,'r') as f:
         query = f.readline()
 
-    finalQuery = f'replace into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,gmb_category,country,state,district,gl_url,gl_url_done_flag,country_code,state_code,district_code,city) values {query.removeprefix(",")}'
+    finalQuery = f'replace into {gmbDataTableName} (gl_website,gl_business_name,gl_ratings,gl_telephone,gl_address,gl_gmb_photos_count,gl_reviews,pincode,category,gmb_category,country,state,district,gl_url,gl_url_done_flag,country_code,state_code,district_code,city,timezone) values {query.removeprefix(",")}'
    
     #updating data into database
     try:
@@ -320,7 +321,8 @@ def main_function():
                                 myDatabase= myDatabase,
                                 myCursor= myCursor,
                                 gmbDataTableName= gmbDataTableName,
-                                city= loc['city'])
+                                city= loc['city'],
+                                timezone = loc['timezone'])
 
     #<----------updating location_flag_stop------------->
 

@@ -97,7 +97,8 @@ def create_table(category,myCursor,myDatabase,country,country_code):
   `http_flag` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`gl_id`),
   UNIQUE KEY `gl_id_UNIQUE` (`gl_id`),
-  UNIQUE KEY `gl_url_UNIQUE` (`gl_url`)
+  UNIQUE KEY `gl_url_UNIQUE` (`gl_url`),
+  `timezone` varchar(45) DEFAULT NULL
 )
         '''
         
@@ -105,7 +106,7 @@ def create_table(category,myCursor,myDatabase,country,country_code):
         location_table_query = f'CREATE TABLE {country_code}_{category}_locations AS SELECT * FROM {country_code}_locations'
 
         alter_query = f'''ALTER TABLE `{country_code}_{category}_locations` 
-                        ADD COLUMN `location_flag_stop` TINYINT(1) NULL AFTER `city`,
+                        ADD COLUMN `location_flag_stop` TINYINT(1) NULL AFTER `timezone`,
                         ADD COLUMN `location_flag_start` TINYINT(1) NULL AFTER `location_flag_stop`;
                         '''
 

@@ -333,16 +333,16 @@ def sendingDataToWebdriver(address,category):
         driver.close()
         return None,None,None,None
 
-def write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category):
+def write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category,timezone):
     try:
-        listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{gmbResultDict['gmb_category']}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
+        listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{gmbResultDict['gmb_category']}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}",\"{timezone}\")"""
         with open(data_file_name,'a') as dataFile:
             dataFile.writelines(listquery)
             print(f'Stored into {data_file_name}')
         dataFile.close()
     except Exception as e:
         print(e)
-def searchNearbyPlaces(data_file_name,address,category,country,country_id,state,state_id,district,district_id,myDatabase, myCursor,gmbDataTableName,city):
+def searchNearbyPlaces(data_file_name,address,category,country,country_id,state,state_id,district,district_id,myDatabase, myCursor,gmbDataTableName,city,timezone):
     
     
     driver,wait,action,allPlace = sendingDataToWebdriver(address,category)
@@ -373,7 +373,7 @@ def searchNearbyPlaces(data_file_name,address,category,country,country_id,state,
             print(gmbResultDict)
             if gmbResultDict != None:
                
-                write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category)
+                write_data_into_file(data_file_name,gmbResultDict,country,state,district,country_id,state_id,district_id,city,pin_code,category,timezone)
                 # listquery = f""",("{gmbResultDict['gl_website']}","{gmbResultDict['gl_business_name']}","{gmbResultDict['gl_ratings']}","{gmbResultDict['gl_telephone']}","{gmbResultDict['gl_address']}","{gmbResultDict['gl_gmb_photos_count']}","{gmbResultDict['gl_reviews']}",{pin_code},"{category}","{country}","{state}","{district}","{gmbResultDict['gl_url']}",{gmbResultDict['gl_url_done_flag']},{country_id},{state_id},{district_id},"{city}")"""
                 # with open('data.csv','a') as f:
                 #     f.writelines(listquery)
