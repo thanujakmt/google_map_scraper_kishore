@@ -1,1 +1,0 @@
-{'location_count': 1, 'location_id': 20320, 'pincode': 0, 'address': '6317,Katanning, KALGOORLIE, Western Australia, Australia', 'district_code': 0, 'district': 'None', 'state_code': 8, 'state': 'Western Australia', 'country_code': 1, 'country': 'australia', 'city': 'Badgebup', 'timezone': 'UTC+08'}

@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'carpet_installer'
+niche = 'garage_door_supplier'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -43,5 +43,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "homeopathy" : {"user":"homeopathy_business","password":"bu$yGrass24","database":"homeopathy_business_db"},
                 "pawn_shop" : {"user":"pawn_shop","password":"WarCh@in34","database":"pawn_shop_business_db"},
                 "pizza" : {"user":"pizza_business","password":"SkyOcean54","database":"pizza_business_db"},
-                "carpet_installer" : {"user":"carpet_installer","password":"l!ghtSnow61","database":"carpet_installer_business_db"}
+                "carpet_installer" : {"user":"carpet_installer","password":"l!ghtSnow61","database":"carpet_installer_business_db"},
+                "garage_door_supplier" : {"user":"garage_door_supplier","password":"cr@zyKoala49","database":"garage_door_supplier_business_db"}
                 }
