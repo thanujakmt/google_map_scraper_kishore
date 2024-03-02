@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'garage_door_supplier'
+niche = 'heating_equipment'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -44,5 +44,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "pawn_shop" : {"user":"pawn_shop","password":"WarCh@in34","database":"pawn_shop_business_db"},
                 "pizza" : {"user":"pizza_business","password":"SkyOcean54","database":"pizza_business_db"},
                 "carpet_installer" : {"user":"carpet_installer","password":"l!ghtSnow61","database":"carpet_installer_business_db"},
-                "garage_door_supplier" : {"user":"garage_door_supplier","password":"cr@zyKoala49","database":"garage_door_supplier_business_db"}
+                "garage_door_supplier" : {"user":"garage_door_supplier","password":"cr@zyKoala49","database":"garage_door_supplier_business_db"},
+                "heating_equipment" : {"user":"heating_equipment","password":"W!ndBulb84","database":"heating_equipment_supplier_db"}
                 }
