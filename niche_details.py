@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'heating_equipment'
+niche = 'custom_home_builder'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -45,5 +45,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "pizza" : {"user":"pizza_business","password":"SkyOcean54","database":"pizza_business_db"},
                 "carpet_installer" : {"user":"carpet_installer","password":"l!ghtSnow61","database":"carpet_installer_business_db"},
                 "garage_door_supplier" : {"user":"garage_door_supplier","password":"cr@zyKoala49","database":"garage_door_supplier_business_db"},
-                "heating_equipment" : {"user":"heating_equipment","password":"W!ndBulb84","database":"heating_equipment_supplier_db"}
+                "heating_equipment" : {"user":"heating_equipment","password":"W!ndBulb84","database":"heating_equipment_supplier_db"},
+                "custom_home_builder" : {"user":"custom_home_builder","password":"goldBe@r87","database":"custom_home_builder_business_db"}
                 }
