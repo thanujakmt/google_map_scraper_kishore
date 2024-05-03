@@ -16,6 +16,7 @@ def get_gl_id_and_gl_website(myCursor,gmbDataTableName):
     rowData = myCursor.fetchall()
     return rowData
     # print(rowData)
+    
 def updateQuery(myCursor,myDatabase,email,gl_id,gmbDataTableName,gl_email_flag):
     if email is not None:
         query = f'''update {gmbDataTableName} set gl_email2 = "{email}" ,{gl_email_flag} = 1 where gl_id = {gl_id}'''
