@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'plumber'
+niche = 'integrative_medicine'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -13,7 +13,6 @@ instance_id = 1
 #note i changed pincode in code and pin_code in searchbusinessdata
 
 collection_type = 2  #1 = Entire Database, 2 = State Wise
-
 
 #<-------Databse Credential----------->
 
@@ -48,5 +47,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "heating_equipment" : {"user":"heating_equipment","password":"W!ndBulb84","database":"heating_equipment_supplier_db"},
                 "custom_home_builder" : {"user":"custom_home_builder","password":"goldBe@r87","database":"custom_home_builder_business_db"},
                 "landscaper" : {"user":"landscaper_business","password":"brownArt87","database":"landscaper_business_db"},
-                "plumber" : {"user":"plumber_business","password":"r!chWave72","database":"plumber_business_db"}
+                "plumber" : {"user":"plumber_business","password":"r!chWave72","database":"plumber_business_db"},
+                "integrative_medicine" : {"user":"integrative_medicine","password":"bestS!gn24","database":"integrative_medicine_business_db"}
                 }
