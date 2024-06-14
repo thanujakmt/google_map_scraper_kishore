@@ -1,8 +1,6 @@
+
 from databaseConnection import dbConnection
 from googleMapFinal_address import *
-
-
-
 
 def getSpecificLocationGmbDetails(category,address):
     allUrl = []

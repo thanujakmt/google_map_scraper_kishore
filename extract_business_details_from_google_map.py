@@ -28,16 +28,12 @@ def webElementFinder(**kwargs):
     else:
         wait = wait
         xpath = xpath
-        
-
-
     
     if actionPerform == 'send_keys' or actionPerform == 'click' or actionPerform == 'one':
         element=wait.until(EC.visibility_of_element_located((By.XPATH,f"{xpath}")))
     else:
         element=wait.until(EC.visibility_of_all_elements_located((By.XPATH,f"{xpath}")))
     
-
     if actionPerform == 'send_keys':
         element.send_keys(actionData)
     elif actionPerform == 'click':
@@ -72,11 +68,11 @@ def getContactPage(website,driver):
                         print("checking email")
                         email = (getEmail(website=contactUrl,driver= driver))
                         
-                        
                 if status_code == 200:
                     return email
                 
             return 'No Email Found'
+        
 @retryFunction
 def checkBusinessInBD(allPlace,myCursor,gmbDataTableName):
     searchBusiness =[]
@@ -283,9 +279,6 @@ def sendingDataToWebdriver(address,category):
             webElementFinder(wait = wait, xpath = "//img[@class='hCgzhd']", actionPerform = 'click')
             time.sleep(2)
             webElementFinder(wait = wait, xpath = "//div[contains(text(),'Nearby')]", actionPerform = 'click')
-
-
-
     time.sleep(4)
     webElementFinder(wait = wait, xpath = "//input[@id='searchboxinput']", actionPerform = 'send_keys', actionData = category)
 
