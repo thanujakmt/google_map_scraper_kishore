@@ -1,6 +1,6 @@
 
 country = 'united states of america'
-niche = 'wellness_clinics'
+niche = 'holistic_medicine'
 category = niche
 country_code = 'usa'
 location_table = f'{country_code}_{niche}_locations'
@@ -49,5 +49,6 @@ db_credential = {"dentist":{"user":"dentist","password":"EvenD!ngo52","database"
                 "landscaper" : {"user":"landscaper_business","password":"brownArt87","database":"landscaper_business_db"},
                 "plumber" : {"user":"plumber_business","password":"r!chWave72","database":"plumber_business_db"},
                 "integrative_medicine" : {"user":"integrative_medicine","password":"bestS!gn24","database":"integrative_medicine_business_db"},
-                "wellness_clinics" : {"user":"wellness_clinics","password":"pot@toDrum61","database":"wellness_clinics_business_db"}
+                "wellness_clinics" : {"user":"wellness_clinics","password":"pot@toDrum61","database":"wellness_clinics_business_db"},
+                "holistic_medicine" : {"user":"holistic_medicine","password":"w!seMemory10","database":"holistic_medicine_business_db"}
                 }
